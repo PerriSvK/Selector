@@ -34,7 +34,7 @@ public class Selector extends Plugin
             {
                 if(!sender.hasPermission("selector.cmd"))
                 {
-                    sender.sendMessage("§cNemáš oprávnení na tento příkaz!");
+                    sender.sendMessage("§cYou don't have enough permissions!");
                     return;
                 }
 
@@ -52,7 +52,7 @@ public class Selector extends Plugin
                     if(config[0] != null)
                         registerCmds(config[0]);
 
-                    sender.sendMessage("§ePlugin reloadovany!");
+                    sender.sendMessage("§ePlugin reloaded!");
                 }
             }
         });
@@ -79,7 +79,7 @@ public class Selector extends Plugin
         }
         catch (IOException e)
         {
-            getLogger().warning("Neviem nacitat config.yml");
+            getLogger().warning("I could't load config.yml");
             return null;
         }
     }
@@ -95,13 +95,13 @@ public class Selector extends Plugin
                 {
                     if(!(sender instanceof ProxiedPlayer))
                     {
-                        sender.sendMessage(ChatColor.RED+"Nemůžu tě přepojit!");
+                        sender.sendMessage(ChatColor.RED+"I can't reconnect you!");
                         return;
                     }
 
                     if(((ProxiedPlayer) sender).getServer().getInfo().getName().equalsIgnoreCase(config.getString(k)))
                     {
-                        sender.sendMessage("§cJiž jsi připojen na server "+k+"!");
+                        sender.sendMessage("§cYou are already connected to "+k+"!");
                         return;
                     }
 
